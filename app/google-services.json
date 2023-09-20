@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "35135766134",
+    "project_id": "video3rv",
+    "storage_bucket": "video3rv.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35135766134:android:7ef1529e747db2d1abe957",
+        "android_client_info": {
+          "package_name": "com.example.einloggohnegoogle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDjXWdsaNPJRtnmXol7oYhr0TU9DF3k24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35135766134:android:f1c0e05ff9becb2eabe957",
+        "android_client_info": {
+          "package_name": "com.example.video3rv"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDjXWdsaNPJRtnmXol7oYhr0TU9DF3k24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
