@@ -1,20 +1,25 @@
 package com.example.einloggohnegoogle
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-class FirebaseViewmodel : ViewModel() {
+class FirebaseViewmodel(application: Application) : AndroidViewModel(application) {
 
-    val firebaseAuth = FirebaseAuth.getInstance()
     val firestore = FirebaseFirestore.getInstance()
+    private val rezeptDatabase = getRezeptDatabase(application)
 
-    private val _user: MutableLiveData<FirebaseUser?> = MutableLiveData()
+    private val repository = FirebaseRepository(rezeptDatabase, firestore)
+    val firebaseAuth = FirebaseAuth.getInstance()
+
+    val rezeptDataList: LiveData<List<Rezept>> = repository.getAll()
+    val _user: MutableLiveData<FirebaseUser?> = MutableLiveData()
     val user: LiveData<FirebaseUser?>
         get() = _user
 
@@ -44,8 +49,6 @@ class FirebaseViewmodel : ViewModel() {
             val profile = Profile("User", extra)
             profileRef.set(profile)
         }
-
-
     }
 
 

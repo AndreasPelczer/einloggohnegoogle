@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        ///////////////////REZEPTE///////////////////////////////
+        /*//////////////////REZEPTE///////////////////////////////
         // Erstelle ein Rezept
         val rezept = Rezept(
             name = "Spaghetti Bolognese",
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         // Rufe die Methode "rezeptHinzufügen()" auf
-        rezeptHinzufügen(rezept)
+        rezeptHinzufügen(rezept)*/
     }
 
     private fun rezeptHinzufügen(rezept: Rezept) {

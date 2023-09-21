@@ -19,4 +19,5 @@
         android:name="com.example.einloggohnegoogle.DataFragment"
         android:label="fragment_data"
         tools:layout="@layout/fragment_data" />
+    <fragment android:id="@+id/placeholder" />
 </navigation>

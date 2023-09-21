@@ -24,6 +24,8 @@
         android:id="@+id/rezepteRecyclerView"
         android:layout_width="372dp"
         android:layout_height="578dp"
+        android:background="#CC7D7D"
+        tools:listitem="@layout/item_rezept"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

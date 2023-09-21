@@ -1,32 +1,38 @@
 package com.example.einloggohnegoogle
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.*
+import com.example.einloggohnegoogle.databinding.ItemRezeptBinding
 
-class RezepteAdapter(private val rezepteList: List<Rezept>) : RecyclerView.Adapter<RezepteAdapter.ViewHolder>() {
+class RezeptAdapter(
+
+
+    private val viewModel: FirebaseViewmodel,
+    private val dataset: List<Rezept>,
+    private val navController: NavController
+
+) : RecyclerView.Adapter<RezeptAdapter.ViewHolder>() {
+    inner class ViewHolder(val binding: ItemRezeptBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_rezept, parent, false)
-        return ViewHolder(view)
+        val binding = ItemRezeptBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
+
+    }
+    override fun getItemCount(): Int {
+        return dataset.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val rezept = rezepteList[position]
-        holder.rezeptNameTV.text = rezept.name
-        holder.zutatenTV.text = "Zutaten: ${rezept.zutaten.joinToString(", ")}"
-        holder.zubereitungTV.text = "Zubereitung: ${rezept.zubereitung}"
+        val rezept = dataset[position]
+        holder.binding.rezeptNameTV.text = rezept.name
+        holder.binding.zutatenTV.text = rezept.zutaten
+        holder.binding.zubereitungTV.text = "Zubereitung: ${rezept.zubereitung}"
+
     }
 
-    override fun getItemCount(): Int {
-        return rezepteList.size
-    }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val rezeptNameTV: TextView = itemView.findViewById(R.id.rezeptNameTV)
-        val zutatenTV: TextView = itemView.findViewById(R.id.zutatenTV)
-        val zubereitungTV: TextView = itemView.findViewById(R.id.zubereitungTV)
-    }
 }
