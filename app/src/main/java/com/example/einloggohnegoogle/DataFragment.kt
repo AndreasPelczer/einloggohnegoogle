@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.einloggohnegoogle.databinding.FragmentDataBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
 class DataFragment : Fragment() {
+
 
     private val firestore = FirebaseFirestore.getInstance()
 
@@ -30,15 +32,19 @@ class DataFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.loadfromFireStore()
-
+            //RV wird beobachtet
         viewModel.rezeptDataList.observe(viewLifecycleOwner) { rezeptDataList ->
             binding.rezepteRecyclerView.adapter =
                 RezeptAdapter(viewModel, rezeptDataList, NavController(requireContext()))
+            ///hier wird die RV übergeben ______WICHTIG_______
+            binding.rezepteRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+
             Log.d("datafragment", "$rezeptDataList")
         }
 
     }
 }
+
 
 
 
