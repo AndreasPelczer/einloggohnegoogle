@@ -9,15 +9,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.einloggohnegoogle.databinding.FragmentDataBinding
+import com.google.firebase.firestore.FirebaseFirestore
 
 class DataFragment : Fragment() {
 
+    private val firestore = FirebaseFirestore.getInstance()
     val viewmodel: FirebaseViewmodel by activityViewModels()
     private lateinit var binding: FragmentDataBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDataBinding.inflate(inflater, container, false)
         return binding.root
@@ -26,20 +28,26 @@ class DataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewmodel.user.observe(viewLifecycleOwner){
-            if(it == null){
-                findNavController().navigate(R.id.loginFragment)
+        // "Rezepte" ist der Name der Sammlung in Firestore
+        val rezepteDb = firestore.collection("Rezepte")
+
+        //  alle Rezepte aus der Datenbank abrufen
+        rezepteDb.get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    // Hier gehen wir durch jedes Dokument (Rezept) in der Sammlung
+                    val rezept = document.toObject(Rezept::class.java)
+
+                    // Zeige das Rezept in den TextViews an
+                 //   binding.rezeptNameTV.text = "Rezeptname: ${rezept.name}"
+                 //   binding.zutatenTV.text = "Zutaten: ${rezept.zutaten.joinToString(", ")}"
+                 //   binding.zubereitungTV.text = "Zubereitung: ${rezept.zubereitung}"
+                }
             }
-        }
-
-        viewmodel.profileRef.addSnapshotListener { value, error ->
-            Log.d("FirebaseTest", "$value , ${value?.data}")
-            value?.let {
-                binding.roleTV.text = value["role"].toString()
+            .addOnFailureListener { exception ->
+                Log.e("FirebaseTest", "Fehler beim Abrufen der Rezepte: ", exception)
             }
-
-        }
-
     }
+
 
 }

@@ -18,14 +18,14 @@ class FirebaseViewmodel : ViewModel() {
     val user: LiveData<FirebaseUser?>
         get() = _user
 
-    lateinit var profileRef : DocumentReference
+    lateinit var profileRef: DocumentReference
 
     init {
         setupUserEnv()
     }
 
     //Wird aufgerufen wenn der User eingeloggt wurde
-    fun setupUserEnv(){
+    fun setupUserEnv() {
         _user.value = firebaseAuth.currentUser
 
         //if(user != null)
@@ -49,7 +49,7 @@ class FirebaseViewmodel : ViewModel() {
     }
 
 
-    fun signOut(){
+    fun signOut() {
         firebaseAuth.signOut()
         _user.value = firebaseAuth.currentUser
     }
@@ -65,6 +65,5 @@ class FirebaseViewmodel : ViewModel() {
     }
 
 
-
-
 }
+
