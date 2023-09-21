@@ -29,34 +29,15 @@ class DataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.rezeptDataList.observe(viewLifecycleOwner) { postsDataList ->
+        viewModel.loadfromFireStore()
+
+        viewModel.rezeptDataList.observe(viewLifecycleOwner) { rezeptDataList ->
             binding.rezepteRecyclerView.adapter =
-                RezeptAdapter(viewModel, postsDataList, NavController(requireContext()))
-            Log.d("datafragment", "$postsDataList")
+                RezeptAdapter(viewModel, rezeptDataList, NavController(requireContext()))
+            Log.d("datafragment", "$rezeptDataList")
         }
 
-        // "Rezepte" ist der Name der Sammlung in Firestore
-        val rezepteDb = firestore.collection("Rezepte")
-
-        //  alle Rezepte aus der Datenbank abrufen
-        rezepteDb.get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    // Hier gehen wir durch jedes Dokument (Rezept) in der Sammlung
-                    val rezept = document.toObject(Rezept::class.java)
-                    // Zeige das Rezept in den TextViews an
-                    //   binding.rezeptNameTV.text = "Rezeptname: ${rezept.name}"
-                    //   binding.zutatenTV.text = "Zutaten: ${rezept.zutaten.joinToString(", ")}"
-                    //   binding.zubereitungTV.text = "Zubereitung: ${rezept.zubereitung}"
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.e("FirebaseTest", "Fehler beim Abrufen der Rezepte: ", exception)
-            }
-
     }
-
-
 }
 
 

@@ -4,13 +4,17 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class FirebaseViewmodel(application: Application) : AndroidViewModel(application) {
+
 
     val firestore = FirebaseFirestore.getInstance()
     private val rezeptDatabase = getRezeptDatabase(application)
@@ -24,6 +28,19 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
         get() = _user
 
     lateinit var profileRef: DocumentReference
+
+
+    fun loadfromFireStore() {
+
+        viewModelScope.launch(Dispatchers.IO) {
+            val localData = repository.getAll().value
+            if (localData.isNullOrEmpty()) {
+                // Es gibt keine Daten in der Room-Datenbank, lade Daten aus Firestore.//
+                repository.getRezeptAndSaveToDatabase()
+            }
+        }
+    }
+
 
     init {
         setupUserEnv()
@@ -51,7 +68,6 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
         }
     }
 
-
     fun signOut() {
         firebaseAuth.signOut()
         _user.value = firebaseAuth.currentUser
@@ -66,7 +82,6 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
             setupUserEnv()
         }
     }
-
 
 }
 

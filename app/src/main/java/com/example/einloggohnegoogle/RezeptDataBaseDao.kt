@@ -22,7 +22,7 @@ interface RezeptDataBaseDao {
     fun insertAll(vararg rezept: Rezept)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertItem()
+    fun insertItem(rezept: Rezept)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateItem(item: Rezept)
