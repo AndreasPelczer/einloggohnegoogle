@@ -34,24 +34,11 @@ class FirebaseRepository(
             val firestoreCollection = firestore.collection("Rezepte")
             val querySnapshot: QuerySnapshot = firestoreCollection.get().await()
             Log.e("firestore laden", "Error fetching Firestore data:")
-            firestoreCollection.get()
-                .addOnSuccessListener { result ->
-                    val rezeptList = mutableListOf<Rezept>()
-                    for (document in result) {
-                        val rezept = document.toObject(Rezept::class.java)
-                        rezeptList.add(rezept)
-                    }
-                    _firestoreRezept.value = rezeptList
-                }
-                .addOnFailureListener {
-                    // Handle any errors here
-                }
 
             // Überprüfen, ob es neue Daten gibt.//
             val currentDocumentCount = querySnapshot.size()
             if (currentDocumentCount > lastKnownDocumentCount) {
                 for (document in querySnapshot.documents) {
-
                     val rezeptId = document.id
                     val name = document.getString("name") ?: ""
                     val zutaten = document.getString("zutaten") ?: ""
@@ -153,7 +140,7 @@ class FirebaseRepository(
         zubereitung: String,
 
 
-        ){
+        ): Unit {
         val localRezept = Rezept(
             id = rezeptId,
             name = name,
