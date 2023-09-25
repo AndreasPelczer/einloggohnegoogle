@@ -8,6 +8,20 @@
     tools:context=".DataFragment"
     app:navGraph="@navigation/nav_graph" >
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/neuesRezeptBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@android:drawable/ic_input_add"
+        android:contentDescription="@string/content_description_neues_rezept_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        android:focusable="true" />
+
     <TextView
         android:id="@+id/roleTV"
         android:layout_width="wrap_content"

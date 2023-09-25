@@ -12,6 +12,9 @@ import androidx.room.Update
 @Dao
 interface RezeptDataBaseDao {
 
+    @Insert
+    fun insertAndGetId(rezept: Rezept)
+
     @Update
     fun updateRezept(rezept: Rezept)
 

@@ -18,6 +18,20 @@
         android:id="@+id/dataFragment"
         android:name="com.example.einloggohnegoogle.DataFragment"
         android:label="fragment_data"
-        tools:layout="@layout/fragment_data" />
+        tools:layout="@layout/fragment_data" >
+        <action
+            android:id="@+id/action_dataFragment_to_NeuesRezeptFragment"
+            app:destination="@id/neuesRezeptFragment" />
+    </fragment>
     <fragment android:id="@+id/placeholder" />
+
+    <fragment
+        android:id="@+id/neuesRezeptFragment"
+        android:name="com.example.einloggohnegoogle.NeuesRezeptFragment"
+        android:label="fragment_neues_rezept"
+        tools:layout="@layout/fragment_neues_rezept" >
+        <action
+            android:id="@+id/action_neuesRezept_to_dataFragment"
+            app:destination="@id/dataFragment" />
+    </fragment>
 </navigation>

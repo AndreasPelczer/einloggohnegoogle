@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.einloggohnegoogle.databinding.FragmentDataBinding
 import com.google.firebase.firestore.FirebaseFirestore
@@ -16,6 +16,7 @@ class DataFragment : Fragment() {
 
 
     private val firestore = FirebaseFirestore.getInstance()
+    private val firestoreDocument = FirebaseFirestore.getInstance().collection("Rezepte").document("Rezept")
 
     val viewModel: FirebaseViewmodel by viewModels()
     private lateinit var binding: FragmentDataBinding
@@ -34,12 +35,24 @@ class DataFragment : Fragment() {
         viewModel.loadfromFireStore()
             //RV wird beobachtet
         viewModel.rezeptDataList.observe(viewLifecycleOwner) { rezeptDataList ->
-            binding.rezepteRecyclerView.adapter =
-                RezeptAdapter(viewModel, rezeptDataList, NavController(requireContext()))
-            ///hier wird die RV übergeben ______WICHTIG_______
-            binding.rezepteRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+          //  Log.d("FirebaseLoad", "Received data from Firebase: $rezeptDataList")
 
-            Log.d("datafragment", "$rezeptDataList")
+            // Initialisiere den Adapter
+            val rezeptAdapter = RezeptAdapter(viewModel, rezeptDataList, findNavController())
+
+            // Verbinde den Adapter mit dem RecyclerView
+            binding.rezepteRecyclerView.adapter = rezeptAdapter
+
+            // Setze das Layout-Manager für den RecyclerView
+            binding.rezepteRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        }
+
+        binding.neuesRezeptBTN.setOnClickListener {
+            Log.d("ButtonClicked", "Neues Rezept Button wurde geklickt")
+
+            // Navigationsaktion auslösen
+            Log.d("neuesRezept", "schitt")
+            findNavController().navigate(R.id.action_dataFragment_to_NeuesRezeptFragment)
         }
 
     }
