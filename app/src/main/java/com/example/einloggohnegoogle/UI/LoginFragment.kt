@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle
+package com.example.einloggohnegoogle.UI
 
 
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.databinding.FragmentLoginBinding
 
 

@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle
+package com.example.einloggohnegoogle.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

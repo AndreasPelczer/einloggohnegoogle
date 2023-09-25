@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle
+package com.example.einloggohnegoogle.UI
 
 import android.app.Application
 import android.util.Log
@@ -6,6 +6,10 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.einloggohnegoogle.Repository.FirebaseRepository
+import com.example.einloggohnegoogle.Profile
+import com.example.einloggohnegoogle.data.Rezept
+import com.example.einloggohnegoogle.data.getRezeptDatabase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase

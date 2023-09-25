@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle
+package com.example.einloggohnegoogle.UI
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
+import com.example.einloggohnegoogle.R
+import com.example.einloggohnegoogle.data.Rezept
 import com.example.einloggohnegoogle.databinding.FragmentNeuesRezeptBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers

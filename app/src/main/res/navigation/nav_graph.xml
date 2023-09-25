@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.einloggohnegoogle.LoginFragment"
+        android:name="com.example.einloggohnegoogle.UI.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/dataFragment"
-        android:name="com.example.einloggohnegoogle.DataFragment"
+        android:name="com.example.einloggohnegoogle.UI.DataFragment"
         android:label="fragment_data"
         tools:layout="@layout/fragment_data" >
         <action
@@ -25,12 +25,15 @@
         <action
             android:id="@+id/action_dataFragment_to_logoutFragment"
             app:destination="@id/logoutFragment" />
+        <action
+            android:id="@+id/action_dataFragment_to_recyclerActivity"
+            app:destination="@id/recyclerActivity" />
     </fragment>
     <fragment android:id="@+id/placeholder" />
 
     <fragment
         android:id="@+id/neuesRezeptFragment"
-        android:name="com.example.einloggohnegoogle.NeuesRezeptFragment"
+        android:name="com.example.einloggohnegoogle.UI.NeuesRezeptFragment"
         android:label="fragment_neues_rezept"
         tools:layout="@layout/fragment_neues_rezept" >
         <action
@@ -39,7 +42,11 @@
     </fragment>
     <fragment
         android:id="@+id/logoutFragment"
-        android:name="com.example.einloggohnegoogle.LogoutFragment"
+        android:name="com.example.einloggohnegoogle.UI.LogoutFragment"
         android:label="fragment_logout"
         tools:layout="@layout/fragment_logout" />
+    <activity
+        android:id="@+id/recyclerActivity"
+        android:name="com.example.einloggohnegoogle.recycleTube.RecyclerFragment"
+        android:label="RecyclerActivity" />
 </navigation>

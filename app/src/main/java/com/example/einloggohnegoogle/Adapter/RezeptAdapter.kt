@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle
+package com.example.einloggohnegoogle.Adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.*
+import com.example.einloggohnegoogle.UI.FirebaseViewmodel
+import com.example.einloggohnegoogle.data.Rezept
 import com.example.einloggohnegoogle.databinding.ItemRezeptBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
