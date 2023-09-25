@@ -35,7 +35,7 @@ class DataFragment : Fragment() {
         viewModel.loadfromFireStore()
             //RV wird beobachtet
         viewModel.rezeptDataList.observe(viewLifecycleOwner) { rezeptDataList ->
-          //  Log.d("FirebaseLoad", "Received data from Firebase: $rezeptDataList")
+            Log.d("FirebaseLoad", "Received data from Firebase: $rezeptDataList")
 
             // Initialisiere den Adapter
             val rezeptAdapter = RezeptAdapter(viewModel, rezeptDataList, findNavController())

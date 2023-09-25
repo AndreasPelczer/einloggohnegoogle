@@ -33,7 +33,6 @@ interface RezeptDataBaseDao {
     @Query("SELECT * FROM rezept_table")
     fun getAllRezepte(): LiveData<List<Rezept>>
 
-
     @Query("DELETE FROM rezept_table")
     fun deleteAll()
 

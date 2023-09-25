@@ -26,7 +26,7 @@ class FirebaseRepository(
 
     fun getCurrentUserId(): String? = auth.currentUser?.uid
 
-    //val firestoreRezept: LiveData<List<Rezept>> = _firestoreRezept
+    val firestoreRezept: LiveData<List<Rezept>> = _firestoreRezept
     private suspend fun fetchFirestoreData(): List<Rezept> {
 
         val firestoreData = mutableListOf<Rezept>()
@@ -69,7 +69,6 @@ class FirebaseRepository(
             for (itemData in apiData) {
                 // ueberprüfen , ob die Firestore id bereits in der Room-Datenbank vorhanden ist
                 val existingRezept = rezeptDataBase.dao.getItemById(itemData.id)
-
                 // Wenn vorhanden, aktualisieren die daten in der Room DB.//
                 val updatedRezept = Rezept(
                     id = existingRezept.id,
@@ -88,8 +87,12 @@ class FirebaseRepository(
     suspend fun getRezeptAndSaveToDatabase() {
         try {
             val firestoreData = fetchFirestoreData()
+            Log.e(TAG, "FirestoreDatato: $firestoreData")
+
             _firestoreRezept.postValue(firestoreData)
             saveRezeptToDatabase(firestoreData)
+
+
         } catch (e: Exception) {
             //  Log.e(TAG, "Error loading Data: $e")
         }
