@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_dataFragment_to_NeuesRezeptFragment"
             app:destination="@id/neuesRezeptFragment" />
+        <action
+            android:id="@+id/action_dataFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment android:id="@+id/placeholder" />
 

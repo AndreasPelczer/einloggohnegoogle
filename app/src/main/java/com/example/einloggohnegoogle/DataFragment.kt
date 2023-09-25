@@ -31,7 +31,11 @@ class DataFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel.user.observe(viewLifecycleOwner){
+            if (it == null){
+                findNavController().navigate(DataFragmentDirections.actionDataFragmentToLoginFragment())
+            }
+        }
         viewModel.loadfromFireStore()
             //RV wird beobachtet
         viewModel.rezeptDataList.observe(viewLifecycleOwner) { rezeptDataList ->
@@ -53,6 +57,12 @@ class DataFragment : Fragment() {
             // Navigationsaktion auslösen
             Log.d("neuesRezept", "schitt")
             findNavController().navigate(R.id.action_dataFragment_to_NeuesRezeptFragment)
+        }
+
+        binding.auslogBTN.setOnClickListener {
+            Log.d("signout", "schitt")
+
+            viewModel.signOut()
         }
 
     }

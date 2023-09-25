@@ -20,11 +20,11 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
 
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
-    val firestore = FirebaseFirestore.getInstance()
+    private val firestore = FirebaseFirestore.getInstance()
     private val rezeptDatabase = getRezeptDatabase(application)
 
     private val repository = FirebaseRepository(rezeptDatabase, firestore, auth )
-    val firebaseAuth = FirebaseAuth.getInstance()
+    private val firebaseAuth = FirebaseAuth.getInstance()
 
     val rezeptDataList: LiveData<List<Rezept>> = repository.getAll()
     val _user: MutableLiveData<FirebaseUser?> = MutableLiveData()
@@ -89,7 +89,11 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
             //Wenn Task fertig ist dann überprüfe z.B. ob der User eingeloggt wurde
             //oder ob es Fehler gab o.Ä.
             setupUserEnv()
-            val profile = Profile("User", extra)
+            val profile = Profile(
+                "User",
+                extra,
+                "",
+                )
             profileRef.set(profile)
         }
     }
