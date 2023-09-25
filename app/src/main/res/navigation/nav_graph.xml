@@ -47,6 +47,6 @@
         tools:layout="@layout/fragment_logout" />
     <activity
         android:id="@+id/recyclerActivity"
-        android:name="com.example.einloggohnegoogle.recycleTube.RecyclerFragment"
+        android:name="com.example.einloggohnegoogle.UI.RecyclerFragment"
         android:label="RecyclerActivity" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle.recycleTube
+package com.example.einloggohnegoogle.Adapter
 
 import android.content.Intent
 import android.net.Uri
@@ -10,6 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.einloggohnegoogle.R
+
+import com.example.einloggohnegoogle.data.YouTubeVideo
 
 
 class YouTubeVideoAdapter(private val videos: List<YouTubeVideo>) :
