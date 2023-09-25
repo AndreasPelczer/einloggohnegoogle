@@ -20,11 +20,11 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
 
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
-    private val firestore = FirebaseFirestore.getInstance()
+    val firestore = FirebaseFirestore.getInstance()
     private val rezeptDatabase = getRezeptDatabase(application)
 
     private val repository = FirebaseRepository(rezeptDatabase, firestore, auth )
-    private val firebaseAuth = FirebaseAuth.getInstance()
+    val firebaseAuth = FirebaseAuth.getInstance()
 
     val rezeptDataList: LiveData<List<Rezept>> = repository.getAll()
     val _user: MutableLiveData<FirebaseUser?> = MutableLiveData()

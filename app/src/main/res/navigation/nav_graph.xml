@@ -23,8 +23,8 @@
             android:id="@+id/action_dataFragment_to_NeuesRezeptFragment"
             app:destination="@id/neuesRezeptFragment" />
         <action
-            android:id="@+id/action_dataFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_dataFragment_to_logoutFragment"
+            app:destination="@id/logoutFragment" />
     </fragment>
     <fragment android:id="@+id/placeholder" />
 
@@ -37,4 +37,9 @@
             android:id="@+id/action_neuesRezept_to_dataFragment"
             app:destination="@id/dataFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/logoutFragment"
+        android:name="com.example.einloggohnegoogle.LogoutFragment"
+        android:label="fragment_logout"
+        tools:layout="@layout/fragment_logout" />
 </navigation>

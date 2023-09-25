@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">einloggohnegoogle</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Auf Wiedersehen</string>
     <string name="content_description_neues_rezept_button">Neues Rezept hinzufügen</string>
     <string name="speichern">Speichern</string>
     <string name="abbruch">Abbruch</string>
