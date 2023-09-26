@@ -72,7 +72,7 @@ class DataFragment : Fragment() {
         }
         binding.videobuttonBTN.setOnClickListener {
             Log.d("videoweg", "weiterleitung")
-            findNavController().navigate(R.id.action_dataFragment_to_recyclerActivity)
+            findNavController().navigate(R.id.action_dataFragment_to_VideoFragment)
         }
 
 
