@@ -9,16 +9,17 @@
         android:id="@+id/loginFragment"
         android:name="com.example.einloggohnegoogle.ui.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_dataFragment"
             app:destination="@id/dataFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/dataFragment"
         android:name="com.example.einloggohnegoogle.ui.DataFragment"
         android:label="fragment_data"
-        tools:layout="@layout/fragment_data" >
+        tools:layout="@layout/fragment_data">
         <action
             android:id="@+id/action_dataFragment_to_NeuesRezeptFragment"
             app:destination="@id/neuesRezeptFragment" />
@@ -31,6 +32,9 @@
         <action
             android:id="@+id/action_dataFragment_to_rezeptDetailFragment"
             app:destination="@id/rezeptDetailFragment" />
+        <action
+            android:id="@+id/action_dataFragment_to_TipFragment"
+            app:destination="@id/TipFragment" />
 
     </fragment>
     <fragment android:id="@+id/placeholder" />
@@ -39,7 +43,7 @@
         android:id="@+id/neuesRezeptFragment"
         android:name="com.example.einloggohnegoogle.ui.NeuesRezeptFragment"
         android:label="fragment_neues_rezept"
-        tools:layout="@layout/fragment_neues_rezept" >
+        tools:layout="@layout/fragment_neues_rezept">
         <action
             android:id="@+id/action_neuesRezept_to_dataFragment"
             app:destination="@id/dataFragment" />
@@ -53,16 +57,28 @@
         android:id="@+id/videoFragment"
         android:name="com.example.einloggohnegoogle.ui.VideoFragment"
         android:label="fragment_video"
-        tools:layout="@layout/fragment_video" >
+        tools:layout="@layout/fragment_video">
         <action
             android:id="@+id/action_videoFragment_to_dataFragment"
             app:destination="@id/dataFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/TipFragment"
+        android:name="com.example.einloggohnegoogle.ui.TipFragment"
+        android:label="TipFragment">
+        <!-- Weitere Einstellungen für das Fragment -->
+        <action
+            android:id="@+id/action_TipFragment_to_dataFragment"
+            app:destination="@id/dataFragment" />
+    </fragment>
+
+
     <fragment
         android:id="@+id/rezeptDetailFragment"
         android:name="com.example.einloggohnegoogle.ui.RezeptDetailFragment"
         android:label="fragment_rezept_detail"
-        tools:layout="@layout/fragment_rezept_detail" >
+        tools:layout="@layout/fragment_rezept_detail">
         <action
             android:id="@+id/action_rezeptDetailFragment_to_dataFragment"
             app:destination="@id/dataFragment" />

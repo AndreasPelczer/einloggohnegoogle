@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle.Adapter
+package com.example.einloggohnegoogle.adapter
 
 import android.content.Intent
 import android.net.Uri

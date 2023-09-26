@@ -67,7 +67,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/tipBTN"
         android:layout_width="101dp"
         android:layout_height="89dp"
         android:layout_marginStart="4dp"
@@ -81,11 +81,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tip vom Profi"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/tipBTN"
+        app:layout_constraintEnd_toEndOf="@+id/tipBTN"
         app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/tipBTN"
         app:layout_constraintVertical_bias="0.814" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

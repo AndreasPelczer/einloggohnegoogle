@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle.Adapter
+package com.example.einloggohnegoogle.adapter
 
 import android.annotation.SuppressLint
 import android.util.Log

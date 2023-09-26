@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.einloggohnegoogle.Adapter.RezeptAdapter
+import com.example.einloggohnegoogle.adapter.RezeptAdapter
 import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.databinding.FragmentDataBinding
 import com.google.firebase.firestore.FirebaseFirestore
@@ -72,6 +72,10 @@ class DataFragment : Fragment() {
         binding.videobuttonBTN.setOnClickListener {
             Log.d("videoweg", "weiterleitung")
             findNavController().navigate(R.id.action_dataFragment_to_VideoFragment)
+        }
+
+        binding.tipBTN.setOnClickListener{
+            findNavController().navigate(R.id.action_dataFragment_to_TipFragment)
         }
 
 

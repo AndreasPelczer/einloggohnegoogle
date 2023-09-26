@@ -14,5 +14,11 @@
     <string name="VideoBackBTN">VideoBackBTN</string>
     <string name="RezeptName">Name</string>
     <string name="ueberschrift">Einfach kochen \nmit Klaus</string>
+    <string name="image_description">lalal</string>
+    <string name="refresh">Refresh</string>
+    <string name="zur_ck">Zurück</string>
+    <string name="i_love_cats">Ich liebe Katzen</string>
+    <string name="textview">TextView</string>
+    <string name="info">Katzenhaar…mir schmeckts</string>
 
 </resources>

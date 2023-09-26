@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.data.YouTubeVideo
-import com.example.einloggohnegoogle.Adapter.YouTubeVideoAdapter
+import com.example.einloggohnegoogle.adapter.YouTubeVideoAdapter
 import com.example.einloggohnegoogle.databinding.FragmentDataBinding
 
 
