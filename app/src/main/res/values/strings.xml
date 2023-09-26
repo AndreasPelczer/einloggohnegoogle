@@ -11,5 +11,6 @@
     <string name="name">Rezeptname</string>
     <string name="Zutaten">Zutaten</string>
     <string name="Zubereitung">Zubereitung</string>
+    <string name="VideoBackBTN">VideoBackBTN</string>
 
 </resources>
