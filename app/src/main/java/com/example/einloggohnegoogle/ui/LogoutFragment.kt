@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle.UI
+package com.example.einloggohnegoogle.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -12,5 +12,7 @@
     <string name="Zutaten">Zutaten</string>
     <string name="Zubereitung">Zubereitung</string>
     <string name="VideoBackBTN">VideoBackBTN</string>
+    <string name="RezeptName">Name</string>
+    <string name="ueberschrift">Einfach kochen \nmit Klaus</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle.UI
+package com.example.einloggohnegoogle.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -48,7 +48,6 @@ class VideoFragment : Fragment() {
         )//Vorspeisen
         val youtubeUrls2 = listOf(
             "https://www.youtube.com/watch?v=IKfOo36lv2Q",
-            "Lachs mit Tagliatelle",
             "https://www.youtube.com/watch?v=3g-tJgdIX7w&list=PLUmbHzQfets2EdqMUyyapBVkcZTsmPq3O&index=3",
             "https://www.youtube.com/watch?v=9PqcWj2fM9U&list=PLUmbHzQfets2EdqMUyyapBVkcZTsmPq3O&index=4",
             "https://www.youtube.com/watch?v=7dt_7PmhFOs&list=PLUmbHzQfets2EdqMUyyapBVkcZTsmPq3O&index=5",
