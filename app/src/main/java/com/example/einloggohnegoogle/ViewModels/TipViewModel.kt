@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.catfactsfriday.data.database.getItemDatabase
 import com.example.catfactsfriday.data.datamodels.FactsItem
 import com.example.catfactsfriday.data.remote.ItemApi
-import com.example.einloggohnegoogle.Repository.AppRepository
+import com.example.einloggohnegoogle.repository.AppRepository
 import kotlinx.coroutines.launch
 
 class TipViewModel(application: Application, val size: Int) : AndroidViewModel(application) {

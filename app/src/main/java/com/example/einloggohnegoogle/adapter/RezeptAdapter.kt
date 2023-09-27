@@ -32,6 +32,7 @@ class RezeptAdapter(
         val binding = ItemRezeptBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
 
+
     }
 
     override fun getItemCount(): Int {
@@ -50,5 +51,6 @@ class RezeptAdapter(
                 .navigate(R.id.action_dataFragment_to_rezeptDetailFragment)
         }
     }
+
 
 }

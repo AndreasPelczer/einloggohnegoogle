@@ -6,7 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.einloggohnegoogle.Repository.FirebaseRepository
+import com.example.einloggohnegoogle.repository.FirebaseRepository
 import com.example.einloggohnegoogle.Profile
 import com.example.einloggohnegoogle.data.Rezept
 import com.example.einloggohnegoogle.data.getRezeptDatabase

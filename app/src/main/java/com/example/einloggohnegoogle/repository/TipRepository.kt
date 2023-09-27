@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle.Repository
+package com.example.einloggohnegoogle.repository
 
 import android.util.Log
 import androidx.lifecycle.LiveData

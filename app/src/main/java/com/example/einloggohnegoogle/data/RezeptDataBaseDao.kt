@@ -13,19 +13,23 @@ import androidx.room.Update
 interface RezeptDataBaseDao {
 
     @Insert
-    fun insertAndGetId(rezept: Rezept)
+    fun insertAndGetId(rezept: Rezept): Long
 
     @Update
     fun updateRezept(rezept: Rezept)
 
     @Query("SELECT * FROM rezept_table WHERE id = :itemId")
-    fun getItemById(itemId: String): Rezept
+    fun getItemById(itemId: String): LiveData<Rezept>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg rezept: Rezept)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertItem(rezept: Rezept)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertRezept(rezept: Rezept)
+
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateItem(item: Rezept)
@@ -36,11 +40,10 @@ interface RezeptDataBaseDao {
     @Query("DELETE FROM rezept_table")
     fun deleteAll()
 
+    @Query("DELETE FROM rezept_table")
+    fun deleteAllRezepte()
+
+
     @Query("SELECT * FROM rezept_table")
     fun getAllItems(): LiveData<List<Rezept>>
-
-
-
-
-
 }

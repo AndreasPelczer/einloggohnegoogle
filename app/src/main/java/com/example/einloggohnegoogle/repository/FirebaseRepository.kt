@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle.Repository
+package com.example.einloggohnegoogle.repository
 
 import android.content.ContentValues.TAG
 import android.util.Log
@@ -29,15 +29,16 @@ class FirebaseRepository(
     fun getCurrentUserId(): String? = auth.currentUser?.uid
 
     val firestoreRezept: LiveData<List<Rezept>> = _firestoreRezept
-    private suspend fun fetchFirestoreData(): List<Rezept> {
 
+
+
+    private suspend fun fetchFirestoreData(): List<Rezept> {
         val firestoreData = mutableListOf<Rezept>()
         try {
             val firestoreCollection = firestore.collection("Rezepte")
             val querySnapshot: QuerySnapshot = firestoreCollection.get().await()
-            Log.e("firestore laden", "Error fetching Firestore data:")
 
-            // Überprüfen, ob es neue Daten gibt.//
+            // Überprüfen, ob es neue Daten gibt
             val currentDocumentCount = querySnapshot.size()
             if (currentDocumentCount > lastKnownDocumentCount) {
                 for (document in querySnapshot.documents) {
@@ -46,45 +47,43 @@ class FirebaseRepository(
                     val zutaten = document.getString("zutaten") ?: ""
                     val zubereitung = document.getString("zubereitung") ?: ""
 
-
                     val rezept = Rezept(
                         id = rezeptId,
                         name = name,
                         zutaten = zutaten,
-                        zubereitung = zubereitung,
-
-                        )
-                    Log.e(TAG, "get data: $rezept")
+                        zubereitung = zubereitung
+                    )
+                    Log.e(TAG, "Fetched data: $rezept")
                     firestoreData.add(rezept)
                 }
-                // aktualisiere die letzte bekannte Anzahl von Dokumenten.//
+                // Aktualisiere die letzte bekannte Anzahl von Dokumenten
                 lastKnownDocumentCount = currentDocumentCount
+            } else {
+                Log.e(TAG, "No new data available.")
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Error fetching Firestore data: $e")
+            Log.e(TAG, "Error fetching Firestore data: ${e.message}")
         }
         return firestoreData
     }
 
+
+
     private fun saveRezeptToDatabase(apiData: List<Rezept>) {
         try {
-            for (itemData in apiData) {
-                // ueberprüfen , ob die Firestore id bereits in der Room-Datenbank vorhanden ist
-                val existingRezept = rezeptDataBase.dao.getItemById(itemData.id)
-                // Wenn vorhanden, aktualisieren die daten in der Room DB.//
-                val updatedRezept = Rezept(
-                    id = existingRezept.id,
-                    name = itemData.name,
-                    zutaten = itemData.zutaten,
-                    zubereitung = itemData.zubereitung,
+            // Lösche alle vorhandenen Rezepte in der Room-Datenbank
+            rezeptDataBase.dao.deleteAllRezepte()
 
-                    )
-                rezeptDataBase.dao.updateRezept(updatedRezept)
+            // Füge die neuen Rezepte aus Firebase in die Room-Datenbank ein
+            for (itemData in apiData) {
+                rezeptDataBase.dao.insertRezept(itemData)
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Error inserting or updating data from API into database: $e")
+            Log.e(TAG, "Error inserting data from API into database: $e")
         }
     }
+
+
 
     suspend fun getRezeptAndSaveToDatabase() {
         try {
@@ -145,7 +144,7 @@ class FirebaseRepository(
         zubereitung: String,
 
 
-        ): Unit {
+        ){
         val localRezept = Rezept(
             id = rezeptId,
             name = name,
@@ -155,10 +154,13 @@ class FirebaseRepository(
         return savePostAndGetId(localRezept)
     }
 
+
     private suspend fun savePostAndGetId(localRezept: Rezept) {
         return withContext(Dispatchers.IO) {
             rezeptDataBase.dao.insertAndGetId(localRezept)
         }
     }
+
 }
+
 
