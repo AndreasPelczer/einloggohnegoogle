@@ -1,16 +1,25 @@
 package com.example.einloggohnegoogle.ui
 
+import android.media.MediaPlayer
+import android.media.RingtoneManager
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.einloggohnegoogle.adapter.RezeptAdapter
 import com.example.einloggohnegoogle.R
+import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
+import com.example.einloggohnegoogle.ViewModels.MenuViewModel.MenuViewModel
 import com.example.einloggohnegoogle.databinding.FragmentDataBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -19,14 +28,15 @@ class DataFragment : Fragment() {
 
     private val firestore = FirebaseFirestore.getInstance()
     private val firestoreDocument = FirebaseFirestore.getInstance().collection("Rezepte").document("Rezept")
-
     val viewModel: FirebaseViewmodel by viewModels()
     private lateinit var binding: FragmentDataBinding
+    private lateinit var menuViewModel: MenuViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDataBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -34,6 +44,23 @@ class DataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        menuViewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
+        // Beobachte die LiveData "menuState" im ViewModel
+        menuViewModel.menuState.observe(viewLifecycleOwner) { menuState ->
+            // Hier wird  der Menüzustand in der UI aktualisiert
+            if (menuState.isOpen) {
+                // Das Menü ist geöffnet, führe die entsprechende UI-Aktion durch
+               // openMenu()
+            } else {
+               // closeMenu()
+                // Das Menü ist geschlossen, führe die entsprechende UI-Aktion durch
+            }
+        }
+        // Hier füge einen Klicklistener für einen Button hinzu
+        binding.openHamburgermenuIV.setOnClickListener {
+            // Hier kannst du die Aktion auslösen, um das Menü zu öffnen
+            menuViewModel.openMenu()
+        }
         viewModel.loadfromFireStore()
             //RV wird beobachtet
         viewModel.rezeptDataList.observe(viewLifecycleOwner) { rezeptDataList ->
@@ -50,9 +77,17 @@ class DataFragment : Fragment() {
         }
 
 
+        val neuesRezeptButton = binding.neuesRezeptBTN
+
+
         binding.neuesRezeptBTN.setOnClickListener {
             Log.d("ButtonClicked", "Neues Rezept Button wurde geklickt")
-
+            val notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+            val mediaPlayer = MediaPlayer.create(context, notificationSound)
+            mediaPlayer.start()
+            val toast = Toast.makeText(requireContext(), "Eigenes Rezept erstellen", Toast.LENGTH_SHORT)
+            toast.setGravity(Gravity.CENTER, 0, 0)
+            toast.show()
             // Navigationsaktion auslösen
             Log.d("neuesRezept", "weiterleitung")
             findNavController().navigate(R.id.action_dataFragment_to_NeuesRezeptFragment)
@@ -78,9 +113,11 @@ class DataFragment : Fragment() {
             findNavController().navigate(R.id.action_dataFragment_to_TipFragment)
         }
 
-
-
     }
+
+
+
+
 }
 
 

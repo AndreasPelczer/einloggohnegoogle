@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle.ui
+package com.example.einloggohnegoogle.ViewModels
 
 import android.app.Application
 import android.util.Log

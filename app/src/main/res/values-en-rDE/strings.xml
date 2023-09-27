@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">German Chef Klaus</string>
+    <string name="hello_blank_fragment">Goodbye</string>
+    <string name="content_description_neues_rezept_button">new recipe</string>
+    <string name="speichern">Save</string>
+    <string name="abbruch">abort</string>
+    <string name="rezeptname_eingeben">Insert Recipename</string>
+    <string name="zubereitung">Prepare</string>
+    <string name="zutaten">Ingrediece</string>
+    <string name="name">Recipename</string>
+    <string name="Zutaten">Ingrediece</string>
+    <string name="Zubereitung">Prepare</string>
+    <string name="VideoBackBTN">VideoBackBTN</string>
+    <string name="RezeptName">Recipename</string>
+    <string name="ueberschrift">German Chef Klaus</string>
+    <string name="image_description">lala</string>
+    <string name="refresh">Refresh</string>
+    <string name="zur_ck">back</string>
+    <string name="i_love_cats">i love cats</string>
+    <string name="textview">notext</string>
+    <string name="info">i eat cats</string>
+    <string name="einstellungen">Settings</string>
+    <string name="chat">Chat</string>
+    <string name="logout">Logout</string>
+    <string name="tip">Tip</string>
+    <string name="_vom_prifi">Chef-tip</string>
+</resources>

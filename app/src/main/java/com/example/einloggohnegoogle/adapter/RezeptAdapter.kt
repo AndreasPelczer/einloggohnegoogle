@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView.*
 import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.data.Rezept
 import com.example.einloggohnegoogle.databinding.ItemRezeptBinding
-import com.example.einloggohnegoogle.ui.FirebaseViewmodel
+import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
 import com.google.firebase.firestore.FirebaseFirestore
 
 

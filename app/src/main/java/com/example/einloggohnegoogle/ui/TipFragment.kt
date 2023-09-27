@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.einloggohnegoogle.R
+import com.example.einloggohnegoogle.ViewModels.TipViewModel
+import com.example.einloggohnegoogle.ViewModels.TipViewModelFactory
 import com.example.einloggohnegoogle.databinding.FragmentTipBinding
 
 class TipFragment : Fragment() {
