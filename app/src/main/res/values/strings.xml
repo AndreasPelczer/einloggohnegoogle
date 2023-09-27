@@ -25,5 +25,7 @@
     <string name="logout">Logout</string>
     <string name="tip">Tip vom Profi</string>
     <string name="_vom_prifi">Tip vom Prifi</string>
+    <string name="video_hinzufügen">Videolink von Youtube einfügen</string>
+    <string name="rezept_l_schen">Rezept löschen</string>
 
 </resources>

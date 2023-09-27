@@ -47,6 +47,8 @@ class RezeptDetailFragment : Fragment() {
             val navController = findNavController()
             navController.navigate(RezeptDetailFragmentDirections.actionRezeptDetailFragmentToDataFragment())
         }
+
+        binding.VideoHinzuFGen.setOnClickListener {  }
     }
 
     // Annahme: Funktion, um ein Rezept basierend auf der ID zu erhalten

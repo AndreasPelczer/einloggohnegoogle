@@ -14,9 +14,15 @@ import com.example.einloggohnegoogle.data.YouTubeVideo
 import com.example.einloggohnegoogle.adapter.YouTubeVideoAdapter
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.databinding.FragmentDataBinding
+import com.example.einloggohnegoogle.databinding.FragmentNeuesRezeptBinding
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class VideoFragment : Fragment() {
+
+
+    private val firestore = FirebaseFirestore.getInstance()
+
 
     val viewModel: FirebaseViewmodel by viewModels()
     private lateinit var binding: FragmentDataBinding
@@ -67,6 +73,8 @@ class VideoFragment : Fragment() {
             "https://www.youtube.com/watch?v=eyfDl8gRwG0",
             "https://www.youtube.com/watch?v=UNMNZtTQA4o",
             "https://www.youtube.com/watch?v=gx-GSXBjAPY"
+
+
         )//Gerichte
         val youtubeUrls3 = listOf(
             "https://www.youtube.com/watch?v=qZe2MS3TLK8&t=6s",

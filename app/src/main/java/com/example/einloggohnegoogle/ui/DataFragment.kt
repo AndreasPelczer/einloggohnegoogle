@@ -39,12 +39,18 @@ class DataFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        viewModel.loadfromFireStore()
         binding = FragmentDataBinding.inflate(inflater, container, false)
         return binding.root
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
 
 
         binding.rezepteRecyclerView.setHasFixedSize(true)
@@ -71,7 +77,8 @@ class DataFragment : Fragment() {
             // Hier kannst du die Aktion auslösen, um das Menü zu öffnen
             menuViewModel.openMenu()
         }
-        viewModel.loadfromFireStore()
+
+
             //RV wird beobachtet
         viewModel.rezeptDataList.observe(viewLifecycleOwner) { rezeptDataList ->
             Log.d("FirebaseLoad", "Received data from Firebase: $rezeptDataList")
@@ -122,6 +129,11 @@ class DataFragment : Fragment() {
         binding.tipBTN.setOnClickListener{
             findNavController().navigate(R.id.action_dataFragment_to_TipFragment)
         }
+
+        binding.rezepteBTN.setOnClickListener{
+            findNavController().navigate(R.id.dataFragment)
+        }
+
 
     }
 

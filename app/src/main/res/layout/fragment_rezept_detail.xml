@@ -5,39 +5,63 @@
     android:id="@+id/rezeptNameTV"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.RezeptDetailFragment"
-    app:navGraph="@navigation/nav_graph">
+    app:navGraph="@navigation/nav_graph"
+    tools:context=".ui.RezeptDetailFragment">
+
+    <ImageView
+        android:id="@+id/videoThumbnailImageView2"
+        android:layout_width="123dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintBottom_toTopOf="@+id/videoTitleTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.584"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/RezeptNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="30sp"
+        android:textColor="@color/lila2"
         android:text="@string/RezeptName"
+        app:layout_constraintBottom_toTopOf="@+id/RezeptZutatenTV"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/RezeptZutatenTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="78dp"
+        android:layout_height="123dp"
+        android:layout_marginTop="32dp"
         android:text="@string/Zutaten"
+        android:textColor="@color/lila"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RezeptZubereitungTV" />
+        app:layout_constraintTop_toBottomOf="@+id/RezeptNameTV" />
 
     <TextView
         android:id="@+id/RezeptZubereitungTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_width="269dp"
+        android:layout_height="222dp"
+        android:layout_marginTop="28dp"
         android:text="@string/Zubereitung"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RezeptNameTV" />
+        app:layout_constraintTop_toBottomOf="@+id/RezeptZutatenTV" />
+
     <ImageView
         android:id="@+id/RezeptBackBTN"
         android:layout_width="wrap_content"
@@ -51,12 +75,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/komentarET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/VideoHinzuFügen"
+        android:layout_width="135dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
         android:ems="10"
+        android:hint="@string/video_hinzufügen"
         android:inputType="text"
-        android:text="Komentar hinzufügen"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -64,7 +91,10 @@
         android:id="@+id/rezeptLoeschenBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rezept löschen"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/rezept_l_schen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
