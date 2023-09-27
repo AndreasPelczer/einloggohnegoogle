@@ -4,8 +4,8 @@ import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.einloggohnegoogle.data.Rezept
-import com.example.einloggohnegoogle.data.RezeptDataBase
+import com.example.einloggohnegoogle.data.datamodels.Rezept
+import com.example.einloggohnegoogle.data.database.RezeptDataBase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
@@ -159,6 +159,9 @@ class FirebaseRepository(
         return withContext(Dispatchers.IO) {
             rezeptDataBase.dao.insertAndGetId(localRezept)
         }
+    }
+    fun getRezeptDetail(id: String): Rezept {
+        return rezeptDataBase.dao.getItemById(id)
     }
 
 }

@@ -9,17 +9,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.einloggohnegoogle.adapter.RezeptAdapter
 import com.example.einloggohnegoogle.R
+
+
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.ViewModels.MenuViewModel.MenuViewModel
+import com.example.einloggohnegoogle.data.datamodels.MenuState
 import com.example.einloggohnegoogle.databinding.FragmentDataBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -44,9 +46,17 @@ class DataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        binding.rezepteRecyclerView.setHasFixedSize(true)
+        viewModel.rezeptDataList.observe(viewLifecycleOwner) {rezept->
+            Log.d("Homefragment","$rezept")
+            binding.rezepteRecyclerView.adapter = RezeptAdapter(viewModel,rezept, NavController(requireContext())
+            )
+        }
+
         menuViewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
         // Beobachte die LiveData "menuState" im ViewModel
-        menuViewModel.menuState.observe(viewLifecycleOwner) { menuState ->
+        menuViewModel.menuState.observe(viewLifecycleOwner) { menuState: MenuState ->
             // Hier wird  der Menüzustand in der UI aktualisiert
             if (menuState.isOpen) {
                 // Das Menü ist geöffnet, führe die entsprechende UI-Aktion durch

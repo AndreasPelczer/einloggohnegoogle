@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle.data
+package com.example.einloggohnegoogle.data.database
 
 
 import androidx.lifecycle.LiveData
@@ -7,6 +7,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import com.example.einloggohnegoogle.data.datamodels.Rezept
 
 
 @Dao
@@ -19,7 +20,7 @@ interface RezeptDataBaseDao {
     fun updateRezept(rezept: Rezept)
 
     @Query("SELECT * FROM rezept_table WHERE id = :itemId")
-    fun getItemById(itemId: String): LiveData<Rezept>
+    fun getItemById(itemId: String):Rezept
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg rezept: Rezept)
@@ -47,3 +48,5 @@ interface RezeptDataBaseDao {
     @Query("SELECT * FROM rezept_table")
     fun getAllItems(): LiveData<List<Rezept>>
 }
+//@Query("SELECT * FROM posts_table WHERE id = :itemId")
+//fun getItemById(itemId: String): PostsData

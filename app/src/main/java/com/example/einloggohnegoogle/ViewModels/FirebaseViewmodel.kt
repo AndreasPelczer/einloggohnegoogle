@@ -7,9 +7,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.einloggohnegoogle.repository.FirebaseRepository
-import com.example.einloggohnegoogle.Profile
-import com.example.einloggohnegoogle.data.Rezept
-import com.example.einloggohnegoogle.data.getRezeptDatabase
+import com.example.einloggohnegoogle.data.datamodels.Profile
+import com.example.einloggohnegoogle.data.datamodels.Rezept
+import com.example.einloggohnegoogle.data.database.getRezeptDatabase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
@@ -120,6 +120,18 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
             setupUserEnv()
         }
     }
+    fun loadRezeptDetail(id: String?) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val detail = repository.getRezeptDetail(id!!)
+                rezeptdetail.postValue(detail)
+            } catch (e: Exception) {
+                Log.e("PostsViewModel", "Error loading post detail: $e")
+            }
+        }
+    }
 
 }
+
+
 

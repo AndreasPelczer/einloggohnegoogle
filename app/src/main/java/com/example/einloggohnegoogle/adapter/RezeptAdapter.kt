@@ -8,8 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.*
-import com.example.einloggohnegoogle.R
-import com.example.einloggohnegoogle.data.Rezept
+import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.databinding.ItemRezeptBinding
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.ui.DataFragmentDirections
@@ -46,7 +45,7 @@ class RezeptAdapter(
         holder.binding.zubereitungTV.text = "Zubereitung: ${rezept.zubereitung}"
         holder.binding.clickcardviewCV.setOnClickListener {
             Log.d("videoweg", "Navigating to RezeptDetailFragment with ID: ${rezept.id}")
-            val action = DataFragmentDirections.actionDataFragmentToRezeptDetailFragment(rezept.id)
+            val action = DataFragmentDirections.actionDataFragmentToRezeptDetailFragment(dataset[position].id)
             holder.itemView.findNavController().navigate(action)
         }
     }
