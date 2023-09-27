@@ -82,6 +82,9 @@
         <action
             android:id="@+id/action_rezeptDetailFragment_to_dataFragment"
             app:destination="@id/dataFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
 
 </navigation>

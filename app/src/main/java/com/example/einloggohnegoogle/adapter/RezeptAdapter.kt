@@ -12,6 +12,7 @@ import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.data.Rezept
 import com.example.einloggohnegoogle.databinding.ItemRezeptBinding
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
+import com.example.einloggohnegoogle.ui.DataFragmentDirections
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -31,8 +32,6 @@ class RezeptAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemRezeptBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
-
-
     }
 
     override fun getItemCount(): Int {
@@ -45,12 +44,13 @@ class RezeptAdapter(
         holder.binding.rezeptNameTV.text = "Name: ${rezept.name}"
         holder.binding.zutatenTV.text = "Zutaten: ${rezept.zutaten}"
         holder.binding.zubereitungTV.text = "Zubereitung: ${rezept.zubereitung}"
-        holder.binding.clickcardviewCV.setOnClickListener() {
-            Log.d("videoweg", "weiterleitung")
-            holder.itemView.findNavController()
-                .navigate(R.id.action_dataFragment_to_rezeptDetailFragment)
+        holder.binding.clickcardviewCV.setOnClickListener {
+            Log.d("videoweg", "Navigating to RezeptDetailFragment with ID: ${rezept.id}")
+            val action = DataFragmentDirections.actionDataFragmentToRezeptDetailFragment(rezept.id)
+            holder.itemView.findNavController().navigate(action)
         }
     }
+
 
 
 }
