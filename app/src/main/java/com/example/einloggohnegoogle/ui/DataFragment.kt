@@ -72,11 +72,11 @@ class DataFragment : Fragment() {
                 // Das Menü ist geschlossen, führe die entsprechende UI-Aktion durch
             }
         }
-        // Hier füge einen Klicklistener für einen Button hinzu
+        /* Hier füge einen Klicklistener für einen Button hinzu
         binding.openHamburgermenuIV.setOnClickListener {
             // Hier kannst du die Aktion auslösen, um das Menü zu öffnen
             menuViewModel.openMenu()
-        }
+        }*/
 
 
             //RV wird beobachtet
@@ -127,7 +127,7 @@ class DataFragment : Fragment() {
         }
 
         binding.tipBTN.setOnClickListener{
-            findNavController().navigate(R.id.action_dataFragment_to_TipFragment)
+            findNavController().navigate(R.id.action_dataFragment_to_tipFragment)
         }
 
         binding.rezepteBTN.setOnClickListener{

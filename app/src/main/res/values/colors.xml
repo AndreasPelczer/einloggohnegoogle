@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="textColorPrimaryDay">#310D5E</color>  <!-- Beispiel: Blau für Day Mode -->
+    <color name="textColorPrimaryNight">@color/gelb</color> <!-- Beispiel: Dunkelblau für Night Mode -->
+
     <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lila">#673AB7</color>
@@ -8,4 +11,7 @@
     <color name="lila3">#BA68C8</color>
     <color name="gelb">#DCE775</color>
     <color name="grün">#A5D6A7</color>
+    <color name="colorPrimaryDay">@color/lila3</color>  <!-- Beispiel: Blau für Day Mode -->
+    <color name="colorPrimaryNight">@color/lila2</color> <!-- Beispiel: Dunkelblau für Night Mode -->
+
 </resources>

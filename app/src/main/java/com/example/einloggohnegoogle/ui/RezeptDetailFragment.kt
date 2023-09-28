@@ -48,7 +48,7 @@ class RezeptDetailFragment : Fragment() {
             navController.navigate(RezeptDetailFragmentDirections.actionRezeptDetailFragmentToDataFragment())
         }
 
-        binding.VideoHinzuFGen.setOnClickListener {  }
+        binding.rezeptBearbeitenBTN.setOnClickListener {  }
     }
 
     // Annahme: Funktion, um ein Rezept basierend auf der ID zu erhalten

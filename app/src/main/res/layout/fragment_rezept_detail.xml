@@ -32,7 +32,6 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
         android:textSize="30sp"
-        android:textColor="@color/lila2"
         android:text="@string/RezeptName"
         app:layout_constraintBottom_toTopOf="@+id/RezeptZutatenTV"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +44,6 @@
         android:layout_height="123dp"
         android:layout_marginTop="32dp"
         android:text="@string/Zutaten"
-        android:textColor="@color/lila"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.064"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,26 +62,12 @@
 
     <ImageView
         android:id="@+id/RezeptBackBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="34dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="128dp"
         android:contentDescription="@string/VideoBackBTN"
         android:src="@drawable/baseline_arrow_back_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.896"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/VideoHinzuFügen"
-        android:layout_width="135dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
-        android:hint="@string/video_hinzufügen"
-        android:inputType="text"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -96,5 +80,15 @@
         android:text="@string/rezept_l_schen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/rezeptBearbeitenBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Rezept bearbeiten"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -107,10 +107,11 @@ class FirebaseRepository(
         name: String,
         zutaten: String,
         zubereitung: String,
+        videoupload: String,
     ) {
         try {
             val rezeptId = UUID.randomUUID().toString()
-            val localRezeptId = savePostAndGetIdLocally(rezeptId, name, zutaten, zubereitung)
+            val localRezeptId = savePostAndGetIdLocally(rezeptId, name, zutaten, zubereitung,videoupload)
 
             // Daten für das Rezept
             val rezeptInfo = Rezept(
@@ -118,7 +119,8 @@ class FirebaseRepository(
                 id = rezeptId,
                 name = name,
                 zubereitung = zubereitung,
-                zutaten = zutaten
+                zutaten = zutaten,
+                videoupload = videoupload
             )
             Log.d(
                 "NeuesRezeptFragment",
@@ -142,6 +144,7 @@ class FirebaseRepository(
         name: String,
         zutaten: String,
         zubereitung: String,
+        videoupload: String,
 
 
         ){
@@ -149,7 +152,8 @@ class FirebaseRepository(
             id = rezeptId,
             name = name,
             zubereitung = zubereitung,
-            zutaten = zutaten
+            zutaten = zutaten,
+            videoupload = videoupload
         )
         return savePostAndGetId(localRezept)
     }

@@ -43,6 +43,7 @@ class RezeptAdapter(
         holder.binding.rezeptNameTV.text = "Name: ${rezept.name}"
         holder.binding.zutatenTV.text = "Zutaten: ${rezept.zutaten}"
         holder.binding.zubereitungTV.text = "Zubereitung: ${rezept.zubereitung}"
+
         holder.binding.clickcardviewCV.setOnClickListener {
             Log.d("videoweg", "Navigating to RezeptDetailFragment with ID: ${rezept.id}")
             val action = DataFragmentDirections.actionDataFragmentToRezeptDetailFragment(dataset[position].id)

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/dataFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -33,11 +33,10 @@
             android:id="@+id/action_dataFragment_to_rezeptDetailFragment"
             app:destination="@id/rezeptDetailFragment" />
         <action
-            android:id="@+id/action_dataFragment_to_TipFragment"
-            app:destination="@id/TipFragment" />
+            android:id="@+id/action_dataFragment_to_tipFragment"
+            app:destination="@id/tipFragment" />
 
     </fragment>
-    <fragment android:id="@+id/placeholder" />
 
     <fragment
         android:id="@+id/neuesRezeptFragment"
@@ -63,16 +62,6 @@
             app:destination="@id/dataFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/TipFragment"
-        android:name="com.example.einloggohnegoogle.ui.TipFragment"
-        android:label="TipFragment">
-        <!-- Weitere Einstellungen für das Fragment -->
-        <action
-            android:id="@+id/action_TipFragment_to_dataFragment"
-            app:destination="@id/dataFragment" />
-    </fragment>
-
 
     <fragment
         android:id="@+id/rezeptDetailFragment"
@@ -85,6 +74,15 @@
         <argument
             android:name="id"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/tipFragment"
+        android:name="com.example.einloggohnegoogle.ui.TipFragment"
+        android:label="fragment_tip"
+        tools:layout="@layout/fragment_tip" >
+        <action
+            android:id="@+id/action_tipFragment_to_dataFragment"
+            app:destination="@id/dataFragment" />
     </fragment>
 
 </navigation>
