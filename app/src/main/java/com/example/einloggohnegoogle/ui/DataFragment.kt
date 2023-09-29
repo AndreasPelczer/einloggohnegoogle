@@ -118,7 +118,6 @@ class DataFragment : Fragment() {
         }
         viewModel.user.observe(viewLifecycleOwner){
             if (it == null){
-                findNavController().navigate(R.id.action_dataFragment_to_logoutFragment)
             }
         }
         binding.videobuttonBTN.setOnClickListener {
